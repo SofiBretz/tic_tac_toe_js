@@ -2,8 +2,16 @@ const gameBoard () => {
     const board = ["X", "X", "X", "X", "X", "X", "X", "X", "X",]
 }();
 
+let reset = () => {
+    document.getElementsByClassName("cell").addEventListener("click", ); //getMark
+}
 
-const player = (name) => {
+let getMark = () => {
+    //cuando le haga clic a la celda nos diga que id se cliqueo
+}
+
+
+const player = (name, symbol) => {
     const array = [];
     let win = false;
     let score= 0;
@@ -28,6 +36,7 @@ const player = (name) => {
 
     return {
         name,
+        symbol,
         win,
         score
     }
@@ -36,17 +45,14 @@ const player = (name) => {
 let configGame = () => {
     let name1= getElementById("");
     let name2= getElementById("");
-    let player1 = new player(name);
-    let player2 = new player(name);
-
-    let moves = 0
+    let player1 = new player(name, 'X');
+    let player2 = new player(name, 'O');
+    let moves = 0;
     return {player1, player2, moves}
 }
 
 let gameStart = () => {
-
     player1
-
 }
 
 

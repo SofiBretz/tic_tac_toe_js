@@ -9,11 +9,11 @@ h1 {
     font-size: 75px; 
 }
 
-#div00, #div01, #div10, #div11, #div20, #div21 {
+#div1, #div2, #div4, #div5, #div7, #div8 {
     border-right: solid 5px black; 
 }
 
-#div00, #div01, #div02, #div10, #div11, #div12 {
+#div1, #div2, #div3, #div4, #div5, #div6 {
     border-bottom: solid 5px black; 
 }
 
@@ -32,7 +32,7 @@ h1 {
     height: 400px;
 }
 
-.chanchito{
+.cell{
     width: 150px;
      height: 150px
 }
