@@ -1,26 +1,6 @@
 const gameBoard () => {
     const board = ["X", "X", "X", "X", "X", "X", "X", "X", "X",]
-
 }();
-
-let boardDev = () => {
-    const boxSize = 150 + "px"; // cambiar nombre!
-        const container = document.getElementById("boardContainer");
-
-        container.style.gridTemplateColumns = `repeat(3, 1fr)`;
-        container.style.gridTemplateRows = `repeat(3, 1fr)`;
-
-        for (i = 0; i < 3; i++) {
-            for (j = 0; j < 3; j++) {
-                let div = document.createElement("div");
-                div.style.width = boxSize;
-                div.style.height = boxSize;
-                div.classList.add("boxes"); // cambiar nombre!
-                div.setAttribute("id", "div" + i + j);
-                container.appendChild(div);
-            }
-        };
-}
 
 
 const player = (name) => {
@@ -65,7 +45,7 @@ let configGame = () => {
 
 let gameStart = () => {
 
-
+    player1
 
 }
 

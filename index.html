@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
-  <link rel="sylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
   <main>
     <h1>Tic Tac Toe Game</h1>
-    <div id = "boardContainer"></div>
+    <div class='inputs'>
+    <div class="playernames">
+      <input type="text" id="player1Name" placeholder="Player One"><br>
+      <input type="text" id="player2Name" placeholder="Player Two">
+    </div>
+    </div>
+    <div id="boardContainer" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);">
+      <div class="chanchito" id="div00"></div>
+      <div class="chanchito" id="div01"></div>
+      <div class="chanchito" id="div02"></div>
+      <div class="chanchito" id="div10"></div>
+      <div class="chanchito" id="div11"></div>
+      <div class="chanchito" id="div12"></div>
+      <div class="chanchito" id="div20"></div>
+      <div class="chanchito" id="div21"></div>
+      <div class="chanchito" id="div22"></div>
+    </div>
+    
+
+
   </main>
 </body>
 <script src="js/index.js"></script>
+
 </html>

@@ -1,5 +1,5 @@
 h1 {
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -25,4 +25,27 @@ h1 {
     height: 450px;
     margin: auto;
     background: rgb(255, 255, 255);
+}
+
+.col {
+    background-color: aqua;
+    height: 400px;
+}
+
+.chanchito{
+    width: 150px;
+     height: 150px
+}
+
+.playernames{
+    margin-bottom: 10px;
+    display: flex;
+    width: 100;
+    justify-content: center;
+    text-align: center;
+    background-color: lightblue;
+
+}
+input{
+    margin: 10px;
 }
