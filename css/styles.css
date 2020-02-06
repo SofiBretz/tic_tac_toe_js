@@ -10,11 +10,11 @@ h1 {
 }
 
 .rightb {
-    border-right: solid 5px black; 
+    border-right: solid 5px lightblue; 
 }
 
 .botb{
-    border-bottom: solid 5px black; 
+    border-bottom: solid 5px lightblue; 
 }
 
 #boardContainer{
@@ -33,8 +33,13 @@ h1 {
 }
 
 .cell{
+    display:flex;
     width: 150px;
-     height: 150px
+     height: 150px;
+     justify-content: center;
+     align-items: center;
+     font-size: 25px;
+     color: lightsalmon;
 }
 
 .playernames{
