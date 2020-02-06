@@ -9,11 +9,11 @@ h1 {
     font-size: 75px; 
 }
 
-#div1, #div2, #div4, #div5, #div7, #div8 {
+.rightb {
     border-right: solid 5px black; 
 }
 
-#div1, #div2, #div3, #div4, #div5, #div6 {
+.botb{
     border-bottom: solid 5px black; 
 }
 
