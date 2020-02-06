@@ -20,10 +20,14 @@ const Player = (name, symbol) => {
       [1, 5, 9],
       [3, 5, 7],
     ];
-
+    console.log(win)
+    // for (,let i = 0 , i<9, i++)
     for (const x in winingCompositions) {
-      if ((winingCompositions[x] - array) == null) {
+      // console.log((winingCompositions[x])[0])
+      if (array.includes((winingCompositions[x])[0]) && array.includes((winingCompositions[x])[1]) && array.includes((winingCompositions[x])[2])) {
         win = true;
+        console.log(win);
+        break;
       }
     }
   };
@@ -35,29 +39,80 @@ const Player = (name, symbol) => {
     symbol,
     win,
     score,
+    checkWinner,
   };
 };
 
 
-const player1 = Player('test', 'x');
 const getMark = (event) => {
-  player1.array.push(parseInt(event.target.id));
-  console.log(player1.array);
-  console.log(player1.win);
-};
+    currentPlayer.array.push(parseInt(event.target.id));
+    document.getElementById(event.target.id).innerHTML=currentPlayer.symbol
+  }
+  
 
 for (const x of document.getElementsByClassName('cell')) {
   x.addEventListener('click', getMark);
 }
 
-// let configGame = () => {
-//     let name1= getElementById("");
-//     let name2= getElementById("");
-//     let player1 = new player(name, 'X');
-//     let player2 = new player(name, 'O');
-//     let moves = 0;
-//     return {player1, player2, moves}
-// }
+// document.getElementById('startGame').addEventListener('click', configGame)
+
+let configGame = () => {
+    let name1= document.getElementById("player1Name").value;
+    let name2= document.getElementById("player2Name").value;
+    let player1 = Player(name, 'X');
+    let player2 = Player(name, 'O');
+    let moves = 0;
+    return {player1, player2, moves}
+}
+
+let currentPlayer=player1
+
+let playerSwitch= () => {
+    if (currentPlayer == player1) {
+        currentPlayer = player2
+    }
+    else { 
+        currentPlayer=player1
+    }
+    moves ++ 
+}
+
+let draw = false
+
+let drawCheck = () => {
+    if (moves == 9){ 
+    draw == true
+    }
+}
+
+
+let playGame= () => {
+
+    configGame
+    //ciclo 
+    while (true){
+    currentPlayer.getMark
+    currentPlayer.checkWinner
+    if (currentPlayer.win) {
+        break;
+    }
+   playerSwitch
+    drawCheck
+    if (draw) {
+        break
+    }
+    }
+}
+// const player1 = Player('test', 'x');
+// const getMark = (event) => {
+//   player1.array.push(parseInt(event.target.id));
+//   document.getElementById(event.target.id).innerHTML="X"
+//   player1.checkWinner();
+//   console.log(player1.array);
+// };
+
+
+
 
 // let gameStart = () => {
 //     player1
