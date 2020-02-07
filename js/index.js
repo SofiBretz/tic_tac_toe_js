@@ -1,9 +1,3 @@
-// const gameBoard () => {
-//     const board = ["X", "X", "X", "X", "X", "X", "X", "X", "X",]
-// }();
-
-// let reset = () => {
-
 const Player = (name, symbol) => {
   const array = [];
   const win = false;
@@ -18,9 +12,20 @@ const Player = (name, symbol) => {
   };
 };
 
-// document.getElementById('startGame').addEventListener('click', configGame)
-
 const gameFlow = () => {
+  const reset = () => {
+    document.getElementById(1).innerHTML = ('');
+    document.getElementById(2).innerHTML = ('');
+    document.getElementById(3).innerHTML = ('');
+    document.getElementById(4).innerHTML = ('');
+    document.getElementById(5).innerHTML = ('');
+    document.getElementById(6).innerHTML = ('');
+    document.getElementById(7).innerHTML = ('');
+    document.getElementById(8).innerHTML = ('');
+    document.getElementById(9).innerHTML = ('');
+  };
+  reset();
+
   const checkWinner = () => {
     const winingCompositions = [
       [1, 2, 3],
@@ -32,9 +37,7 @@ const gameFlow = () => {
       [1, 5, 9],
       [3, 5, 7],
     ];
-    // for (,let i = 0 , i<9, i++)
     for (const x in winingCompositions) {
-      // console.log((winingCompositions[x])[0])
       if (
         currentPlayer.array.includes(winingCompositions[x][0])
         && currentPlayer.array.includes(winingCompositions[x][1])
@@ -48,22 +51,29 @@ const gameFlow = () => {
   let moves = 0;
 
   const getMark = (event) => {
-    currentPlayer.array.push(parseInt(event.target.id));
+    currentPlayer.array.push(parseInt(event.target.id, 10));
     document.getElementById(event.target.id).innerHTML = currentPlayer.symbol;
     document.getElementById(event.target.id).removeEventListener('click', getMark);
     checkWinner();
     if (currentPlayer.win) {
-      console.log(`${currentPlayer.name} wins`);
-      // sleep(3000);
-      document.location.reload();
-      
+      document.getElementById('gameText').innerHTML = `${currentPlayer.name} wins`;
+
+      for (const x of document.getElementsByClassName('cell')) {
+        x.removeEventListener('click', getMark);
+      }
+      player1.array = [];
+      player2.array = [];
+      moves = 0;
     }
 
 
     playerSwitch();
+    if (!player1.win && !player2.win) {
+      document.getElementById('gameText').innerHTML = `It's ${currentPlayer.name} turn`;
+    }
     if (moves > 8) {
-      console.log('DRAW GAME');
-      reset();
+      document.getElementById('gameText').innerHTML = "It's a DRAW";
+      moves = 0;
     }
   };
 
@@ -71,87 +81,22 @@ const gameFlow = () => {
     x.addEventListener('click', getMark);
   }
 
-  // let configGame = () => {
-  const draw = false;
   const name1 = document.getElementById('player1Name').value;
   const name2 = document.getElementById('player2Name').value;
   const player1 = Player(name1, 'X');
   const player2 = Player(name2, 'O');
-  // return {player1, player2, moves}
-  // }
 
   let currentPlayer = player1;
+  document.getElementById('gameText').innerHTML = `${currentPlayer.name} goes first`;
+
   let playerSwitch = () => {
-    if (currentPlayer == player1) {
+    if (currentPlayer === player1) {
       currentPlayer = player2;
     } else {
       currentPlayer = player1;
     }
-    moves++;
+    moves += 1;
   };
-  let sleep = (milliseconds) => {
-    const start = new Date().getTime();
-    for (let i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds) {
-        break;
-      }
-    }
-  };
-
-  let reset = () => {
-    sleep(2000);
-    document.getElementById(1).innerHTML = ('');
-    document.getElementById(2).innerHTML = ('');
-    document.getElementById(3).innerHTML = ('');
-    document.getElementById(4).innerHTML = ('');
-    document.getElementById(5).innerHTML = ('');
-    document.getElementById(6).innerHTML = ('');
-    document.getElementById(7).innerHTML = ('');
-    document.getElementById(8).innerHTML = ('');
-    document.getElementById(9).innerHTML = ('');
-  };
-
-
-  // let drawCheck = () => {
-
-  // };
-
-  // let playGame= () => {
-
-  // configGame
-  // ciclo
-
-  // currentPlayer.getMark;
-  /* if (currentPlayer.win) {
-    //break;
-  }
-
-  drawCheck;
-  if (draw) {
-    //break;
-  } */
 };
 
-// document.getElementById('startGame').addEventListener('click', gameFlow);
-
-// }
-
-// const player1 = Player('test', 'x');
-// const getMark = (event) => {
-//   player1.array.push(parseInt(event.target.id));
-//   document.getElementById(event.target.id).innerHTML="X"
-//   player1.checkWinner();
-//   console.log(player1.array);
-// };
-
-// let gameStart = () => {
-//     player1
-// }
-
-// if (player1.win) {
-//         //player 1 wins
-//     } else {
-//         if moves == 9
-//         //draw
-//     }
-//     moves++
+document.getElementById('startGame').addEventListener('click', gameFlow);
